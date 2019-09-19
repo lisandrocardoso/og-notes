@@ -4,6 +4,7 @@ Notejam: Django
 
 Notejam application implemented using `Django <https://www.djangoproject.com/>`_ framework.
 
+Python version: Latest 2.7
 Django version: 1.6
 
 ==========================
@@ -38,6 +39,7 @@ Create database schema:
 .. code-block:: bash
 
     $ cd YOUR_PROJECT_DIR/django/notejam/
+    # The superuser creation will happen during the syncdb management command below
     $ ./manage.py syncdb
     $ ./manage.py migrate
 
