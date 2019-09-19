@@ -35,7 +35,9 @@ Install dependencies:
     $ cd YOUR_PROJECT_DIR/django/
     $ pip install -r requirements.txt
 
-Create database schema:
+-------
+Create database schema
+-------
 
 .. code-block:: bash
 
