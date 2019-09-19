@@ -6,7 +6,7 @@ Notejam application implemented using `Django <https://www.djangoproject.com/>`_
 
 Python version: Latest 2.7
 
-Django version: 1.6
+Django version: 1.6 (see requirements.txt)
 
 ==========================
 Installation and launching
@@ -53,7 +53,7 @@ Start django web server:
 .. code-block:: bash
 
     $ cd YOUR_PROJECT_DIR/django/notejam/
-    $ ./manage.py runserver
+    $ ./manage.py runserver 0.0.0.0:8000
 
 Go to http://127.0.0.1:8000/ in your browser.
 
