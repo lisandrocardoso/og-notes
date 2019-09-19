@@ -5,6 +5,7 @@ Notejam: Django
 Notejam application implemented using `Django <https://www.djangoproject.com/>`_ framework.
 
 Python version: Latest 2.7
+
 Django version: 1.6
 
 ==========================
