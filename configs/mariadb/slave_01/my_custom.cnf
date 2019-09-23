@@ -1,0 +1,2 @@
+[mysqld]
+gtid-domain-id=2

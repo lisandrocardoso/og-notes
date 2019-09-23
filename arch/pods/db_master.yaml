@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: notejam-db-master
+  labels:
+    repl-role: notejam-db-master
+spec:
+  containers:
+  - name: notejam-db-master
+    image: bitnami/mariadb:latest 
+    ports:
+      - containerPort: 3306
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: MARIADB_ROOT_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: notejam-db
+            key: root_password
+      - name: MARIADB_USER
+        valueFrom:
+          secretKeyRef:
+            name: notejam-db
+            key: username
+      - name: MARIADB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: notejam-db
+            key: password
+      - name: MARIADB_DATABASE
+        value: notejam 
+      - name: MARIADB_REPLICATION_MODE
+        value: master
+      - name: MARIADB_REPLICATION_USER
+        valueFrom:
+          secretKeyRef:
+            name: notejam-db
+            key: repl_user 
+      - name: MARIADB_REPLICATION_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: notejam-db
+            key: repl_password
+    volumeMounts:
+      - name: db-master-storage
+        mountPath: /bitnami/mariadb
+      - name: db-master-cnf 
+        mountPath: /opt/bitnami/mariadb/conf/bitnami/my_custom.cnf
+        subPath: my_custom.cnf
+  volumes:
+    - name: db-master-cnf
+      configMap:
+        name: db-master-cnf 
+    - name: db-master-storage
+      persistentVolumeClaim:
+        claimName: notejam-db-master-claim
+  securityContext:
+    fsGroup: 1000
+
