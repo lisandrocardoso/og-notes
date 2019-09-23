@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/home/licha/OG/kubernetes/notejam-slave-01-storage"
+    path: "/tmp/notejam-slave-01-storage"
